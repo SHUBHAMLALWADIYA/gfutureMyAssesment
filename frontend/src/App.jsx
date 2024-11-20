@@ -2,16 +2,17 @@ import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 import "./App.css";
 
-const socket = io("http://localhost:8050");
+const socket = io("http://localhost:8010");
 function App() {
   const [username, setUsername] = useState("");
-  const [messsage, setMessage] = useState("");
-  const [messsages, setMessages] = useState([]);
+  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState([]);
   const [isJoined, setIsJoined] = useState(false);
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
+      console.log("msg dtaa")
       setMessages((prev) => [...prev, data]);
     });
     socket.on("users", (updatedUsers) => {
@@ -20,7 +21,7 @@ function App() {
 
     return () => {
       socket.off("receive_message");
-      socket.off(updatedUsers);
+      socket.off("users");
     };
   }, []);
 
@@ -32,8 +33,11 @@ function App() {
   };
 
   const sendMessage = () => {
-    if (messsage) {
-      const data = { username, messsage };
+    console.log("first")
+    if (message) {
+      console.log(message)
+      const data = { username, message };
+      console.log(data)
       socket.emit("send_message", data);
       setMessage("");
     }
@@ -67,8 +71,8 @@ function App() {
             </div>
           </div>
           <div className="chat">
-            <div className="messsages">
-              {messsages.map((msg, index) => (
+            <div className="messages">
+              {messages.map((msg, index) => (
                 <div key={index}>
                   <strong>{msg.username}</strong>
                   {""}
@@ -80,10 +84,10 @@ function App() {
               <input 
               type="text"
               placeholder="Enter Your Message"
-              value={messsage} 
+              value={message} 
               onChange={(e)=>setMessage(e.target.value)}
               />
-              <button onClick={sendMessage}></button>
+              <button onClick={sendMessage}>Send</button>
             </div>
           </div>
         </div>

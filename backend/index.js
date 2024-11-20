@@ -32,7 +32,7 @@ socket.on('disconnect',()=>{
 })
 
 
-const PORT=8050
+let PORT=8010
 app.listen(PORT,()=>{
     console.log('server is running on port ',PORT)
 })

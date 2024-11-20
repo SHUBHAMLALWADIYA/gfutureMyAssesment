@@ -1,0 +1,171 @@
+.app {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+  }
+  
+  .join-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .join-container input {
+    padding: 10px;
+    font-size: 16px;
+    width: 300px;
+  }
+  
+  .join-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    max-width: 600px;
+    height: 90vh;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .chat-header {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    text-align: center;
+  }
+  
+  .username-highlight {
+    font-weight: bold;
+    color: #ffeb3b;
+  }
+  
+  .users {
+    padding: 10px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .users ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 60px;
+  }
+  
+  .message {
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%;
+  }
+  
+  .message.self {
+    background: #007bff;
+    color: white;
+    margin-left: auto;
+  }
+  
+  .myname{
+    background: #007bff;
+    color:black;
+  }
+  .input-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 95%;
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: white;
+  }
+  
+  .input-container input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .input-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+  .users {
+    padding: 10px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .user-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .tag {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    color: #333;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    font-weight: 500;
+  }
+  
+  .self-tag {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #0056b3;
+    font-weight: bold;
+  }
+  

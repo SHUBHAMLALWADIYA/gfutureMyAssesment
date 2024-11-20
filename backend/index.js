@@ -33,6 +33,6 @@ socket.on('disconnect',()=>{
 
 
 let PORT=8010
-app.listen(PORT,()=>{
+server.listen(PORT,()=>{
     console.log('server is running on port ',PORT)
 })

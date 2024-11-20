@@ -44,7 +44,7 @@ function App() {
       console.log(data)
       socket.emit("send_message", data);
       console.log("messages",messages)
-      setMessages((prevMessages) => [...prevMessages, data]);
+      // setMessages((prevMessages) => [...prevMessages, data]);
       setMessage("");
     }
   };
@@ -72,7 +72,8 @@ function App() {
             <h3>Users</h3>
             <div className="user-tags">
               {users.map((user) => (
-                <span key={user.id}>{user.username}</span>
+                <span key={user.id} 
+                className={user.username === username ? "tag self-tag" : "tag"}>{user.username}</span>
               ))}
             </div>
           </div>
@@ -81,9 +82,19 @@ function App() {
               {messages.map((msg, index) =>{ 
                 console.log("msg" ,msg)
                 return(
-                <div key={index}>
-                  <strong>{msg.username}</strong>
-                  {""}
+                  <div
+                  key={index}
+                  className={
+                    msg.username === username ? "message self" : "message"
+                  }
+                >
+                  <strong
+                    className={
+                      msg.username === username ? "message myname" : "message"
+                    }
+                  >
+                    {msg.username} :
+                  </strong>{" "}
                   {msg.message}
                 </div>
               )})}

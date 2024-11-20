@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { io } from "socket.io-client";
 import "./App.css";
 
-const socket = io("http://localhost:8010");
+let socket = io.connect("http://localhost:8080");
 function App() {
   const [username, setUsername] = useState("");
   const [message, setMessage] = useState("");
@@ -11,9 +11,10 @@ function App() {
   const [isJoined, setIsJoined] = useState(false);
 
   useEffect(() => {
+    console.log("two")
     socket.on("receive_message", (data) => {
       console.log("msg dtaa")
-      setMessages((prev) => [...prev, data]);
+      setMessages((prevMessages) => [...prevMessages, data]);
     });
     socket.on("users", (updatedUsers) => {
       setUsers(updatedUsers);
@@ -72,13 +73,15 @@ function App() {
           </div>
           <div className="chat">
             <div className="messages">
-              {messages.map((msg, index) => (
+              {messages.map((msg, index) =>{ 
+                console.log("msg" ,msg)
+                return(
                 <div key={index}>
                   <strong>{msg.username}</strong>
                   {""}
                   {msg.message}
                 </div>
-              ))}
+              )})}
             </div>
             <div className="input-container">
               <input 

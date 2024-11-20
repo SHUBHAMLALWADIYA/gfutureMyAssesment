@@ -31,7 +31,7 @@ function App() {
     }
   };
 
-  const semdMessage = () => {
+  const sendMessage = () => {
     if (messsage) {
       const data = { username, messsage };
       socket.emit("send_message", data);
@@ -76,7 +76,15 @@ function App() {
                 </div>
               ))}
             </div>
-            <div className="input-container"></div>
+            <div className="input-container">
+              <input 
+              type="text"
+              placeholder="Enter Your Message"
+              value={messsage} 
+              onChange={(e)=>setMessage(e.target.value)}
+              />
+              <button onClick={sendMessage}></button>
+            </div>
           </div>
         </div>
       )}

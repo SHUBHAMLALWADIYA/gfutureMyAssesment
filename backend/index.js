@@ -22,7 +22,7 @@ socket.on('join',(username)=>{
     io.emit('users',users)
 })
 socket.on('send_message',(data)=>{
-    io.emit('receive_message : ',data)
+    io.emit('receive_message',data)
 })
 
 socket.on('disconnect',()=>{

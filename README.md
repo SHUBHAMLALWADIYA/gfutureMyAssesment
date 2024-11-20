@@ -2,7 +2,7 @@
 
 for clone project and checking purpose 
 
-step 1 : git clone 
+step 1 : git clone https://github.com/SHUBHAMLALWADIYA/gfutureMyAssesment.git
 
 step 2 : cd frontend -> npm install 
          cd backedn  -> npm install
